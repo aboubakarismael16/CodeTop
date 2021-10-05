@@ -21,6 +21,8 @@
 
 -----
 
+[ ✅206. 反转链表](#-206-反转链表)
+
 ```go
 /**
  * Definition for singly-linked list.
