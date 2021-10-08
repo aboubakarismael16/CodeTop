@@ -1,5 +1,6 @@
 1. [ ✅206. 反转链表](#-206-反转链表)
 1. [ ✅24. 两两交换链表中的节点](#-24-两两交换链表中的节点)
+2. [ ✅3. 无重复字符的最长子串](#-3-无重复字符的最长子串)
 
 -----
 
@@ -66,3 +67,32 @@ func swapPairs(head *ListNode) *ListNode {
 - 空间复杂度：O(1)。
 
 ![](img/24.jpg)
+
+
+- [X] 3. 无重复字符的最长子串
+
+```go
+func lengthOfLongestSubstring(s string) int {
+    start , res := 0,0
+    m := map[byte]int{}
+
+    for i := 0; i <len(s); i++ {
+        if _, exists := m[s[i]] ; exists {
+            start = max(start, m[s[i]]+1)
+        }
+        m[s[i]] = i
+        res = max(res, i-start + 1)
+    }
+
+    return res 
+}
+
+func max(a,b int) int {
+    if a > b {
+        return a
+    } else {
+        return b
+    }
+}
+
+```
