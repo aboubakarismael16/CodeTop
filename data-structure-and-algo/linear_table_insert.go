@@ -8,7 +8,7 @@ func main() {
 
 	temp := make([]int, lenght+1)
 
-	insert(scores, temp, lenght, 75, 2)
+	insert(scores, temp, lenght, 75, 3)
 
 	scores = temp
 	for i := 0; i < lenght+1; i++ {
