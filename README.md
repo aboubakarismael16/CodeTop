@@ -102,7 +102,8 @@ func max(a,b int) int {
 3. ✅[199. Binary Tree Right Side View](#199-binary-tree-right-side-view)
 4. ✅[143. Reorder List](#143-reorder-list)
 5. ✅[70. Climbing Stairs](#70-climbing-stairs)
-
+6. ✅[剑指 Offer 22. 链表中倒数第k个节点](#剑指-offer-22-链表中倒数第k个节点)
+7. ✅[124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
 ## [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/submissions/)
 
 ```go
@@ -268,3 +269,79 @@ Accepted
 - 45/45 cases passed (0 ms)
 - Your runtime beats 100 % of golang submissions
 - Your memory usage beats 76.72 % of golang submissions (1.9 MB)
+
+
+## [剑指 Offer 22. 链表中倒数第k个节点](https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/)
+
+解法一:
+```go
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+    slow, fast := head, head
+    for ; k > 0 && fast != nil ; k-- {
+        fast = fast.Next
+    }
+    for fast != nil {
+        slow = slow.Next
+        fast = fast.Next
+    }
+
+    return slow
+}
+```
+
+解法二:
+
+```go
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+    slow, fast := head, head
+    i := 0
+    for slow != nil {
+        if i >= k {
+            fast = fast.Next
+        }
+        slow = slow.Next
+        i++
+    }
+    return fast
+}
+```
+
+## [124. Binary Tree Maximum Path Sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+```go
+func maxPathSum(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	result := root.Val
+	helper(root, &result)
+	return result
+
+}
+
+func helper(root *TreeNode, result *int) int {
+	if root == nil {
+		return 0
+	}
+
+	left := helper(root.Left, result)
+	right := helper(root.Right, result)
+	*result = max(*result, left+right+root.Val)
+	lmax := max(0, left+root.Val)
+	rmax := max(0, right+root.Val)
+
+	return max(lmax, rmax)
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	} else {
+		return b
+	}
+}
+```
+Accepted
+- 94/94 cases passed (16 ms)
+- Your runtime beats 82.72 % of golang submissions
+- Your memory usage beats 75.4 % of golang submissions (7.8 MB)
