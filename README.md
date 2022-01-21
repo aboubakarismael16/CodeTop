@@ -17,3 +17,6 @@
 3. ✅[2. Add Two Numbers](#2-add-two-numbers)
 4. ✅[144. Binary Tree Preorder Traversal](#144-binary-tree-preorder-traversal)
 5. ✅[148. Sort List](#148-sort-list)
+6. ✅[105. Construct Binary Tree from Preorder and Inorder Traversal](#105-construct-binary-tree-from-preorder-and-inorder-traversal)
+7. ✅[151. Reverse Words in a String](#151-reverse-words-in-a-string)
+8. ✅[31. Next Permutation](#31-next-permutation)
