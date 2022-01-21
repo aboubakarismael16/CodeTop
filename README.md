@@ -104,6 +104,11 @@ func max(a,b int) int {
 5. ✅[70. Climbing Stairs](#70-climbing-stairs)
 6. ✅[剑指 Offer 22. 链表中倒数第k个节点](#剑指-offer-22-链表中倒数第k个节点)
 7. ✅[124. Binary Tree Maximum Path Sum](#124-binary-tree-maximum-path-sum)
+8. ✅[69. Sqrt(x)](#69-sqrtx)
+9. ✅[56. Merge Intervals](#56-merge-intervals)
+10. ✅[82. Remove Duplicates from Sorted List II](#82-remove-duplicates-from-sorted-list-ii)
+
+
 ## [232. Implement Queue using Stacks](https://leetcode-cn.com/problems/implement-queue-using-stacks/submissions/)
 
 ```go
@@ -130,6 +135,8 @@ func (this *MyQueue) Pop() int {
 func (this *MyQueue) Peek() int {
 	if len(this.output) == 0 {
 		for len(this.input) > 0 {
+			// we can also define item := this.input[len(this.input)-1]
+			// and import it .
 			this.output = append(this.output, this.input[len(this.input)-1])
 			this.input = this.input[:len(this.input)-1]
 		}
@@ -305,6 +312,20 @@ func getKthFromEnd(head *ListNode, k int) *ListNode {
     return fast
 }
 ```
+解法:
+
+```go
+func getKthFromEnd(head *ListNode, k int) *ListNode {
+    slow, fast := head, head 
+    for i := 0 ; fast != nil; i++ {
+        if i >= k {
+            slow = slow.Next
+        }
+        fast = fast.Next
+    }
+    return slow
+}
+```
 
 ## [124. Binary Tree Maximum Path Sum](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
 ```go
@@ -345,3 +366,99 @@ Accepted
 - 94/94 cases passed (16 ms)
 - Your runtime beats 82.72 % of golang submissions
 - Your memory usage beats 75.4 % of golang submissions (7.8 MB)
+
+## [69. Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+```go
+func mySqrt(x int) int {
+    if x <= 1 {
+        return x
+    }
+
+    left, right := 0, x
+    for left <= right {
+        mid := left + (right-left)>>1
+        if mid*mid == x {
+            return mid
+        } else if mid*mid < x {
+            left = mid + 1
+        } else {
+            right = mid -1
+        }
+    }
+
+    return left -1
+}
+```
+
+Accepted
+- 1017/1017 cases passed (0 ms)
+- Your runtime beats 100 % of golang submissions
+- Your memory usage beats 61.08 % of golang submissions (2.2 MB)
+
+
+## [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+
+```go
+func merge(intervals [][]int) [][]int {
+    sort.Slice(intervals, func(i, j int) bool {
+        return intervals[i][0] < intervals[j][0]
+    })
+
+    var result [][]int
+    i := 0
+    for i < len(intervals) {
+        left, right := intervals[i][0], intervals[i][1]
+        j := i+1
+        for j < len(intervals) && intervals[j][0] <= right {
+            right = max(right, intervals[j][1])
+            j++
+        }
+
+        result = append(result, []int{left, right}) 
+        i = j
+    }
+
+    return result
+}
+
+func max(a, b int) int {
+    if a > b {
+        return a
+    } else {
+        return b
+    }
+}
+```
+
+Accepted
+- 169/169 cases passed (20 ms)
+- Your runtime beats 31.97 % of golang submissions
+- Your memory usage beats 6.94 % of golang submissions (7.1 MB)
+
+## [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)
+
+```go
+func deleteDuplicates(head *ListNode) *ListNode {
+    dummy := &ListNode{-1, head}
+    prev := dummy
+
+    for prev.Next != nil {
+        cur := prev.Next
+        for cur.Next != nil && cur.Val == cur.Next.Val {
+            cur = cur.Next
+        }
+
+        if prev.Next != cur {
+            prev.Next = cur.Next
+        } else {
+            prev = cur
+        }
+    }
+
+    return dummy.Next
+}
+```
+Accepted
+- 166/166 cases passed (4 ms)
+- Your runtime beats 76.84 % of golang submissions
+- Your memory usage beats 99.92 % of golang submissions (3 MB)

@@ -1,18 +1,31 @@
 package main
 
-import "fmt"
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
 
-func print(n int) int {
-	if n == 0 {
-		return 0
+func preOrderWalk(root *TreeNode, ch chan int) {
+	if root == nil {
+		return
 	}
 
-	fmt.Println(n)
-	return print(n - 1)
+	ch <- root.Val
+	preOrderWalk(root.Left, ch)
+	preOrderWalk(root.Right, ch)
+}
 
+func preOrder(root *TreeNode) <-chan int {
+	ch := make(chan int)
+	go func() {
+		preOrderWalk(root, ch)
+		close(ch)
+	}()
+
+	return ch
 }
 
 func main() {
-	fmt.Println(print(5))
 
 }
