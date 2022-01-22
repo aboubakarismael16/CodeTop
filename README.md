@@ -10,6 +10,7 @@
 9. ✅[56. Merge Intervals](#56-merge-intervals)
 10. ✅[82. Remove Duplicates from Sorted List II](#82-remove-duplicates-from-sorted-list-ii)
 
+-----
 
 [2022-01-21](#2022-01-21)
 1. ✅[19. Remove Nth Node From End of List](#19-remove-nth-node-from-end-of-list)
@@ -20,3 +21,14 @@
 6. ✅[105. Construct Binary Tree from Preorder and Inorder Traversal](#105-construct-binary-tree-from-preorder-and-inorder-traversal)
 7. ✅[151. Reverse Words in a String](#151-reverse-words-in-a-string)
 8. ✅[31. Next Permutation](#31-next-permutation)
+
+-----
+
+[2022-01-21](#2022-01-22)
+1. ✅[1143. Longest Common Subsequence](#1143-longest-common-subsequence)
+2. ✅[4. Median of Two Sorted Arrays](#4-median-of-two-sorted-arrays)
+3. ✅[104. Maximum Depth of Binary Tree](#104-maximum-depth-of-binary-tree)
+4. ✅[129. Sum Root to Leaf Numbers](#129-sum-root-to-leaf-numbers)
+5. ✅[110. Balanced Binary Tree](#110-balanced-binary-tree)
+6. ✅[93. Restore IP Addresses](#93-restore-ip-addresses)
+7. ✅[113. Path Sum II](#113-path-sum-ii)
