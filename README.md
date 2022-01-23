@@ -33,3 +33,12 @@
 6. ✅[93. Restore IP Addresses](#93-restore-ip-addresses)
 7. ✅[113. Path Sum II](#113-path-sum-ii)
 8. ✅[155. Min Stack](#155-min-stack)
+
+-----
+
+[2022-01-21](#2022-01-23)
+1. ✅[22. Generate Parentheses](#22-generate-parentheses)
+2. ✅[98. Validate Binary Search Tree](#98-validate-binary-search-tree)
+3. ✅[543. Diameter of Binary Tree](#543-diameter-of-binary-tree)
+4. ✅[470. Implement Rand10() Using Rand7()](#470-implement-rand10-using-rand7)
+5. ✅[64. Minimum Path Sum](#64-minimum-path-sum)
