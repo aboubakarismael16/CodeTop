@@ -42,3 +42,8 @@
 3. ✅[543. Diameter of Binary Tree](#543-diameter-of-binary-tree)
 4. ✅[470. Implement Rand10() Using Rand7()](#470-implement-rand10-using-rand7)
 5. ✅[64. Minimum Path Sum](#64-minimum-path-sum)
+6. ✅[112. Path Sum](#112-path-sum)
+7. ✅[234. Palindrome Linked List](#234-palindrome-linked-list)
+8. ✅[48. Rotate Image](#48-rotate-image)
+9. ✅[718. Maximum Length of Repeated Subarray](#718-maximum-length-of-repeated-subarray)
+10. ✅[78. Subsets](#78-subsets)
