@@ -47,3 +47,52 @@
 8. ✅[48. Rotate Image](#48-rotate-image)
 9. ✅[718. Maximum Length of Repeated Subarray](#718-maximum-length-of-repeated-subarray)
 10. ✅[78. Subsets](#78-subsets)
+
+
+## 2022-03-18
+
+## 215. 数组中的第K个最大元素
+给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
+请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+
+```go
+func findKthLargest(nums []int, k int) int {
+    if len(nums) == 0 {
+        return 0
+    }
+
+    return selection(nums, 0, len(nums)-1, len(nums)-k)
+}
+
+func selection(arr []int, left, right, k int) int {
+    if left == right {
+        return arr[left]
+    }
+
+    pivot := partition(arr, left, right)
+
+    if k == pivot {
+        return arr[pivot]
+    } else if k < pivot {
+        return selection(arr, left, pivot - 1, k)
+    } else  {
+        return selection(arr, pivot+1, right, k)
+    }
+}
+
+func partition(arr []int, left, right int) int {
+    pivot := arr[right]
+    i := left -1 
+
+    for j := left; j < right; j++ {
+        if arr[j] < pivot {
+            i++
+            arr[j], arr[i] = arr[i], arr[j]
+        }
+    }
+
+    arr[i+1], arr[right] = arr[right], arr[i+1]
+
+    return i + 1
+}
+```
