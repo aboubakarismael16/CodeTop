@@ -54,7 +54,6 @@
 ## 215. 数组中的第K个最大元素
 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
-
 ```go
 func findKthLargest(nums []int, k int) int {
     if len(nums) == 0 {
@@ -94,5 +93,82 @@ func partition(arr []int, left, right int) int {
     arr[i+1], arr[right] = arr[right], arr[i+1]
 
     return i + 1
+}
+```
+
+## 2022-03-22
+
+##704. 二分查找
+给定一个n个元素有序的（升序）整型数组nums 和一个目标值target ，写一个函数搜索nums中的 target，如果目标值存在返回下标，否则返回 -1
+
+```go
+func search(nums []int, target int) int {
+
+    left,right := 0, len(nums)-1
+
+   for left <= right {
+       mid := left + (right-left)>>1
+       if nums[mid] < target {
+           left = mid + 1
+       } else if nums[mid] > target {
+           right = mid - 1 
+       } else if nums[mid] == target {
+           return mid
+       }
+   }
+
+    return -1
+}
+```
+
+##left_bound
+```go
+func left_bound(nums []int, target int) int {
+
+    left,right := 0, len(nums)-1
+
+   for left <= right {
+       mid := left + (right-left)>>1
+       if nums[mid] < target {
+           left = mid + 1
+       } else if nums[mid] > target {
+           right = mid - 1 
+       } else if nums[mid] == target {
+           right = mid -1 
+       }
+   }
+   
+   if left >= len(nums) || nums[left] != target {
+   	        return -1 
+       }
+
+    return left
+}
+```
+
+
+##right_bound
+
+```go
+func left_bound(nums []int, target int) int {
+
+    left,right := 0, len(nums)-1
+
+   for left <= right {
+       mid := left + (right-left)>>1
+       if nums[mid] < target {
+           left = mid + 1
+       } else if nums[mid] > target {
+           right = mid - 1 
+       } else if nums[mid] == target {
+           left = mid + 1
+       }
+   }
+   
+   if right < len(nums) || nums[right] != target {
+   	        return -1 
+       }
+
+    return right
 }
 ```
