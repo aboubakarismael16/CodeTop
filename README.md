@@ -172,3 +172,54 @@ func left_bound(nums []int, target int) int {
     return right
 }
 ```
+
+## 2022-03-23
+
+##26. 删除有序数组中的重复项
+
+```go
+func removeDuplicates(nums []int) int {
+    if len(nums) == 0 {
+        return 0
+    }
+
+    slow, fast := 0,0
+    for fast < len(nums) {
+        if nums[fast] != nums[slow] {
+            slow++
+            nums[slow] = nums[fast]
+        
+        }
+        fast++
+    }
+
+    return slow + 1
+}
+```
+
+##83. 删除排序链表中的重复元素
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func deleteDuplicates(head *ListNode) *ListNode {
+    if head == nil {
+        return nil
+    }
+
+    cur:= head
+    for cur != nil && cur.Next != nil {
+        if cur.Next.Val == cur.Val {
+            cur.Next = cur.Next.Next
+        } else {
+            cur = cur.Next
+        }
+    }
+    return head
+}
+```
