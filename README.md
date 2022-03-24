@@ -223,3 +223,53 @@ func deleteDuplicates(head *ListNode) *ListNode {
     return head
 }
 ```
+
+##2022-03-24
+
+##27. 移除元素 ⭐⭐
+
+```go
+func removeElement(nums []int, val int) int {
+    slow, fast := 0,0
+
+    for fast < len(nums) {
+        if nums[fast] != val {
+            //give fast value to slow
+            nums[slow] = nums[fast]
+            //then slow move
+            slow++
+        }
+
+        //first fast move
+        fast++
+    }
+
+    return slow
+}
+```
+
+##283. 移动零
+
+```go
+func moveZeroes(nums []int)  {
+    p := removeElt(nums, 0)
+    for ; p < len(nums); p++ {
+        nums[p] = 0
+    }
+
+}
+
+func removeElt(nums []int, val int) int {
+    slow, fast := 0, 0
+    
+    for fast < len(nums) {
+        if nums[fast] != val {
+            nums[slow] = nums[fast]
+            slow++
+        }
+        fast++
+    }
+
+    return slow
+}
+```
