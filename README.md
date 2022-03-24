@@ -98,7 +98,7 @@ func partition(arr []int, left, right int) int {
 
 ## 2022-03-22
 
-##704. 二分查找
+##704. 二分查找  ⭐⭐⭐⭐
 给定一个n个元素有序的（升序）整型数组nums 和一个目标值target ，写一个函数搜索nums中的 target，如果目标值存在返回下标，否则返回 -1
 
 ```go
@@ -175,7 +175,7 @@ func left_bound(nums []int, target int) int {
 
 ## 2022-03-23
 
-##26. 删除有序数组中的重复项
+##26. 删除有序数组中的重复项  ⭐⭐
 
 ```go
 func removeDuplicates(nums []int) int {
@@ -197,7 +197,7 @@ func removeDuplicates(nums []int) int {
 }
 ```
 
-##83. 删除排序链表中的重复元素
+##83. 删除排序链表中的重复元素  ⭐⭐⭐
 
 ```go
 /**
