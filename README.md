@@ -275,7 +275,7 @@ func removeElement(nums []int, val int) int {
 }
 ```
 
-## 283. 移动零
+## 283. 移动零 ⭐⭐
 
 ```go
 func moveZeroes(nums []int)  {
@@ -303,7 +303,7 @@ func removeElt(nums []int, val int) int {
 
 ## 2022-03-25
 
-## 21. 合并两个有序链表
+## 21. 合并两个有序链表 ⭐⭐
 
 ```go
 /**
