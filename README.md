@@ -400,3 +400,67 @@ func middleNode(head *ListNode) *ListNode {
     return slow
 }
 ```
+
+## 2022-03-28
+
+## 141. 环形链表
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func hasCycle(head *ListNode) bool {
+    slow, fast := head, head
+
+    for fast != nil  && fast.Next != nil {
+        slow = slow.Next
+        fast = fast.Next.Next
+
+        if fast == slow {
+            return true
+        }
+    }
+
+    return false
+}
+```
+
+## 142. 环形链表 II
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func detectCycle(head *ListNode) *ListNode {
+    slow, fast := head, head
+
+    for fast != nil && fast.Next != nil {
+        fast = fast.Next.Next
+        slow = slow.Next
+
+        if slow == fast {
+            break
+        }
+    }
+
+    if fast == nil || fast.Next == nil {
+        return nil
+    }
+
+    slow = head
+    for slow != fast {
+        fast = fast.Next
+        slow = slow.Next
+    }
+
+    return slow
+}
+```
