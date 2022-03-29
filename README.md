@@ -403,7 +403,7 @@ func middleNode(head *ListNode) *ListNode {
 
 ## 2022-03-28
 
-## 141. 环形链表
+## 141. 环形链表 ⭐⭐
 
 ```go
 /**
@@ -429,7 +429,7 @@ func hasCycle(head *ListNode) bool {
 }
 ```
 
-## 142. 环形链表 II
+## 142. 环形链表 II ⭐
 
 ```go
 /**
@@ -462,5 +462,36 @@ func detectCycle(head *ListNode) *ListNode {
     }
 
     return slow
+}
+```
+
+## 2022-03-29
+
+```go
+/**
+ * Definition for singly-linked list.
+ * type ListNode struct {
+ *     Val int
+ *     Next *ListNode
+ * }
+ */
+func getIntersectionNode(headA, headB *ListNode) *ListNode {
+    p1,p2 := headA, headB
+
+    for p1 != p2 {
+        if p1 == nil {
+            p1 = headB
+        } else {
+            p1 = p1.Next
+        }
+
+        if p2 == nil {
+            p2 = headA
+        } else {
+            p2 = p2.Next
+        }
+    } 
+
+    return p2
 }
 ```
